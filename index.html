@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+	  <script>
+		function berechnen()
+		{
+			//alert("Hallo");
+			var bw1 = document.noten.bw1.value*0.2;
+			var bw2 = document.noten.bw2.value*0.2;
+			var unco1 = document.noten.unco1.value*0.2;
+			var unco2 = document.noten.unco2.value*0.2;
+			var case1 = document.noten.case1.value*0.1;
+			var case2 = document.noten.case2.value*0.1;
+			var kla = document.noten.kla.value*1;
+			var gew1 = document.noten.gew1.value*1;
+			var gew2 = document.noten.gew2.value*1;
+			var klapro = document.noten.klapro.value*1;
+			//alert(bw1);
+			//alert(bw2);
+			//alert(unco1);
+			//alert(unco2);
+			//alert(case1);
+			//alert(case2);
+			
+			var notenschnitt = (bw1*gew1 + bw2*gew2 + unco1*gew1 + unco2*gew2 + case1*gew1 + case2*gew2)/50;
+			var notenschnittge = Math.round(notenschnitt);
+			//alert(notenschnittge);
+			
+			if(klapro >= 30)
+			{
+				var ergebnis = (notenschnittge*0.49 + kla*0.51);
+				var ergge = Math.round(ergebnis);
+				alert(ergge);
+			}
+			else
+			{
+				alert("Leider nicht bestanden");
+			}
+			
+			
+		}
+		  
+	  </script>
+	 <style type="text/css" media="screen, projection">
+            * {
+	         margin: 0;
+		 padding: 0; font: "Helvetica";			
+	     }
+	     body {
+		 background: #FFF;
+		 color: #000;
+		 font: 0.9em "Helvetica";
+	     }
+	     fieldset {
+		 padding: 1em;
+		 border: 1px solid #000;
+		 width: 23em;
+		 margin: 1em;
+	     }
+	     label, legend {
+		 //text-transform: lowercase;
+	     }
+	     label {
+		 margin-right: 1.5em;
+		 float: left;
+		 width: 15em;
+		 padding-top: 0.3em;
+		 text-align: right;
+	     }
+	     input {
+		 display: block;
+		 font-size: 1em;
+		 margin-bottom: 0.8em;
+		 border: 1px solid #000;
+		 padding: 0.1em;
+		 width: 5em;
+	     }
+		 h1{color: #87DBE6}
+		 button {margin-left:1em;padding:0.9em;font-size:1em;}
+        </style>
+	
+<meta charset="utf-8">
+<title>Notenberechnung</title>
+</head>
+
+<body>
+<h3>FK-Noten-Berechnung</h3>
+	<form name="noten">
+	<fieldset>
+      <legend>Vorhandene Noten</legend>
+	  <label for="bw1">BW 1. Semester</label>
+	  <input value= "2" id="bw1" name="bw1" type="number" />
+	  <label for="bw2">BW 2. Semester</label>
+	  <input value= "2" id="bw2" name="bw2" type="number" />
+	  <label for="unco1">UNCO 1. Semester</label>
+	  <input value= "2" id="unco1" name="unco1" type="number" />
+	  <label for="unco2">UNCO 2. Semester</label>
+	  <input value= "2" id="unco2" name="unco2" type="number" />
+	  <label for="case1">Case-Studies 1. Semester</label>
+      <input value= "2" id="case1" name="case1" type="number" />
+	  <label for="case2">Case-Studies 2. Semester</label>
+      <input value= "2" id="case2" name="case2" type="number" />
+	  <label for="kla">Klausur</label>
+	  <input value= "2" id="kla" name="kla" type="number" />
+	  <label for="gew1">1. Semester Gewichtung</label>
+	  <input value= "50" id="gew1" name="gew1" type="number" />
+      <label for="gew2">2. Semester Gewichtung</label>
+	  <input value= "50" id="gew2" name="gew2" type="number" />
+	  <label for="klapro">Klausur Prozent</label>
+	  <input value= "" id="klapro" name="klapro" type="number" />
+	 </fieldset>
+	</form>
+	<button onClick="berechnen()">Berechnen</button>
+</body>
+</html>
